@@ -5,16 +5,11 @@ npm run test
 ```
 
 ### Três A's
-- Definição: Esta etapa envolve a configuração do ambiente de teste. Aqui, você prepara tudo o que é necessário para executar o teste. Isso pode incluir criar objetos, configurar mocks, definir inputs e preparar o contexto necessário para o teste.
-Objetivo: Garantir que o teste tenha um ponto de partida definido e que todos os pré-requisitos para o teste sejam atendidos.
-Act (Agir):
+Arrange (Preparar): Nesta fase inicial, configuramos o ambiente de teste. Isso inclui a criação de objetos necessários, configuração de mocks (simulações), definição de inputs (entradas) e preparação do contexto em que o teste será executado. O objetivo é criar um cenário controlado onde todos os pré-requisitos para executar o teste estão prontamente disponíveis, garantindo um ponto de partida claro e definido.
 
-- Definição: Esta é a etapa onde você executa a ação que deseja testar. Geralmente, isso envolve chamar um método ou função com os inputs preparados na etapa de Arrange.
-Objetivo: Executar a ação que está sendo testada para gerar um resultado. Esta é a parte do teste que realmente interage com o código que você está testando.
-Assert (Afirmar):
+Act (Agir): Após a preparação, esta etapa envolve a execução da ação ou função que está sob teste, usando os inputs e o contexto definidos anteriormente. O foco é no processo de interação com o código para gerar um resultado, permitindo-nos observar o comportamento do código em condições específicas.
 
-- Definição: Nesta etapa, você verificará os resultados da ação. Isso envolve comparar o resultado real com o resultado esperado. As assertivas são declarações que falham se a condição especificada não for verdadeira.
-Objetivo: Confirmar que o código que está sendo testado se comporta como esperado. As assertivas garantem que o resultado da ação atende aos critérios definidos na sua especificação.
+Assert (Afirmar): Por fim, avaliamos os resultados da ação, comparando o que foi obtido com o que era esperado. Utilizamos assertivas para verificar esses resultados, sendo estas declarações que falham caso o resultado não corresponda ao esperado. Esta fase é crucial para confirmar se o código testado atua conforme as expectativas, validando seu comportamento e garantindo que as funcionalidades atendam às especificações desejadas.
 
 ## Exemplo prático
 ```js

@@ -3,6 +3,7 @@ const app = require('../app.js');
 
 describe('User API', () => {
     it('should create a new user', async () => {
+        const userData = { name: 'Test User', email: 'test@example.com' };
         const response = await request(app).post('/users').send(userData);
         expect(response.statusCode).toBe(201);
         expect(response.body).toEqual(expect.objectContaining(userData));
