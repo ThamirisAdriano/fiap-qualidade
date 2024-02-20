@@ -11,4 +11,12 @@ function findById(id) {
     return Promise.resolve(users[id] || null);
 }
 
-module.exports = { create, findById };
+async function updateById(id, updateData) {
+  if (!users[id]) {
+    return null;
+  }
+  users[id] = {...users[id], ...updateData};
+  return users[id];
+}
+
+module.exports = { create, findById, updateById };

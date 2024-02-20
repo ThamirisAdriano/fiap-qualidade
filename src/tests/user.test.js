@@ -17,4 +17,21 @@ describe('User API', () => {
         expect(getUserResponse.statusCode).toBe(200);
         expect(getUserResponse.body).toEqual(expect.objectContaining(userData));
     });
+
+    test('should update an existing user', async () => {
+        const user = await request(app)
+          .post('/users')
+          .send({name: 'Test User', email: 'test@example.com'});
+        const updatedUserData = {name: 'Updated Name', email: 'updated@example.com'};
+        await request(app)
+          .put(`/users/${user.body.id}`)
+          .send(updatedUserData)
+          .expect(200)
+          .then((response) => {
+            expect(response.body.name).toBe(updatedUserData.name);
+            expect(response.body.email).toBe(updatedUserData.email);
+          });
+      });
+
+
 });

@@ -6,5 +6,6 @@ app.use(express.json());
 
 app.post('/users', userController.createUser);
 app.get('/users/:id', userController.getUser);
+app.put('/users/:id', userController.updateUser);
 
 module.exports = app;
