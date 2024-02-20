@@ -33,4 +33,23 @@ async function updateUser(req, res) {
     }
   }
 
-module.exports = { createUser, getUser, updateUser };
+  async function loginUser(req, res) {
+    try {
+        const user = await userModel.findByEmail(req.body.email);
+        if (!user) {
+            return res.status(404).send('Usuário não encontrado');
+        }
+
+        const isMatch = await userModel.validatePassword(user, req.body.password);
+        if (!isMatch) {
+            return res.status(401).send('Credenciais inválidas');
+        }
+
+        const token = await userModel.generateAuthToken(user);
+        res.status(200).send({ user, token });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
+module.exports = { createUser, getUser, updateUser, loginUser};

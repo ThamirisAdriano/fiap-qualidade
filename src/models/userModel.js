@@ -1,4 +1,3 @@
-// Simulando um banco de dados simples em memória
 const users = {};
 
 function create(userData) {
@@ -19,4 +18,17 @@ async function updateById(id, updateData) {
   return users[id];
 }
 
-module.exports = { create, findById, updateById };
+function findByEmail(email) {
+  return Promise.resolve(Object.values(users).find(user => user.email === email));
+}
+
+function validatePassword(user, password) {
+  return Promise.resolve(user.password === password);
+}
+
+function generateAuthToken(user) {
+  return Promise.resolve(`token-${user.id}`);
+}
+
+
+module.exports = { create, findById, updateById, validatePassword , findByEmail, generateAuthToken};
